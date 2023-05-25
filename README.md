@@ -15,3 +15,8 @@ Here is a [simple blog design in figma](https://www.figma.com/file/nh0V05z3NB87u
 
 ## Design in Figma 
 <img src="https://media.discordapp.net/attachments/1077747221640003681/1111412200129708153/writings.dev.png" alt="Desing">
+
+## Live Demo
+<a href="https://app.netlify.com/start/deploy?repository=https://github.com/USERNAME/REPO_NAME" target="_blank">
+  <img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify">
+</a>
