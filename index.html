@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Simple Blog</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Recursive:wght@300;400;500;600;700;800;900;1000&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="nav">
+        <ul>
+          <li><a href="#home">jahazieljbh.dev</a></li>
+        </ul>
+        <ul>
+          <li><a href="#categories">categories</a></li>
+          <li><a href="#articles">articles</a></li>
+          <li><a href="#about">about</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="home">
+      <section class="hero">
+        <img
+          class="logo"
+          src="https://school.really-learn-english.com/wp-content/uploads/quill-with-ink-300-tiny.png"
+          alt="logo"
+        />
+        <h2>Writings for Developers</h2>
+        <p>Curated collection of articles for busy developers</p>
+      </section>
+
+      <section id="categories">
+        <ul class="categories-list">
+          <li><a class="fa fa-th-large" id="grid-btn"></a></li>
+          <li><a class="fa fa-bars" id="list-btn"></a></li>
+          <li><a class="category-link" data-category>JavaScript</a></li>
+          <li><a class="category-link" data-category>DevOps</a></li>
+          <li><a class="category-link" data-category>Cloud</a></li>
+          <li><a class="category-link" data-category>Programming</a></li>
+          <li><a class="category-link" data-category>Architecture</a></li>
+          <li><a class="category-link" data-category>Database</a></li>
+        </ul>
+      </section>
+
+      <section id="articles">
+        <ul class="articles-list">
+          <li class="card" data-article-url="./html/article-1.html">
+            <img
+              src="https://res.cloudinary.com/practicaldev/image/fetch/s--N_GHiVYD--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/mengc1hnjqh10gmqfqph.png"
+              alt="Imagen del artículo"
+              class="card-image"
+            />
+            <div class="card-content">
+              <h3 class="card-title">Creating a CI/CD pipeline using Github Actions</h3>
+              <p class="card-description">
+                CI/CD: Automating software development, testing, and deployment
+                for efficient delivery.
+              </p>
+              <div class="card-footer">
+                <div class="card-footer-content">
+                  <span class="card-date">May 22, 2023</span>
+                  <span class="card-category">DevOps</span>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="card" data-article-url="./html/article-2.html">
+            <img
+              src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20200627163847/Python-for-Absolute-Begineers.png"
+              alt="Imagen del artículo"
+              class="card-image"
+            />
+            <div class="card-content">
+              <h3 class="card-title">Python for Absolute Beginners</h3>
+              <p class="card-description">
+                Python is the most popular programming language out there and it
+                is used for so many different industries.
+              </p>
+              <div class="card-footer">
+                <div class="card-footer-content">
+                  <span class="card-date">May 22, 2023</span>
+                  <span class="card-category">DevOps</span>
+                  <span class="card-category">Programming</span>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="card" data-article-url="./html/article-3.html">
+            <img
+              src="https://jstobigdata.com/wp-content/uploads/2019/06/Docker-intro-min.png"
+              alt="Imagen del artículo"
+              class="card-image"
+            />
+            <div class="card-content">
+              <h3 class="card-title">Docker from Zero to Hero</h3>
+              <p class="card-description">
+                Learn what Docker is and how it is used in the software
+                development process.
+              </p>
+              <div class="card-footer">
+                <div class="card-footer-content">
+                  <span class="card-date">May 22, 2023</span>
+                  <span class="card-category">DevOps</span>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="card" data-article-url="./html/article-4.html">
+            <img
+              src="https://miro.medium.com/v2/resize:fit:2000/1*z7e0I03CKadLMCTOWRJHHw.png"
+              alt="Imagen del artículo"
+              class="card-image"
+            />
+            <div class="card-content">
+              <h3 class="card-title">Setup and Install PostgreSQL Using Docker</h3>
+              <p class="card-description">
+                Docker is an excellent tool for simplifying the installation and management of applications, including PostgreSQL.
+              </p>
+              <div class="card-footer">
+                <div class="card-footer-content">
+                  <span class="card-date">May 22, 2023</span>
+                  <span class="card-category">DevOps</span>
+                  <span class="card-category">Database</span>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="card" data-article-url="./html/article-5.html">
+            <img
+              src="https://raygun.com/blog/images/js-best-practices/feature.jpg"
+              alt="Imagen del artículo"
+              class="card-image"
+            />
+            <div class="card-content">
+              <h3 class="card-title">JavaScript: Best Practice</h3>
+              <p class="card-description">
+                Now that we’ve had a look at the basics, it’s time to kick it up a notch with some JavaScript best practices.
+              </p>
+              <div class="card-footer">
+                <div class="card-footer-content">
+                  <span class="card-date">May 23, 2023</span>
+                  <span class="card-category">JavaScript</span>
+                  <span class="card-category">Programming</span>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <p class="no-articles-message" style="display: none;">Aún no hay artículos de este tema.</p>
+      </section>
+
+      <div class="pagination">
+        <a href="#" class="page-link">Previous</a>
+        <a href="#" class="page-link active">1</a>
+        <a href="#" class="page-link">2</a>
+        <a href="#" class="page-link">3</a>
+        <a href="#" class="page-link">4</a>
+        <a href="#" class="page-link">5</a>
+        <a href="#" class="page-link">Next</a>
+      </div>
+
+      <section id="about">
+        <div class="info">
+          <h2>About</h2>
+          <p>
+            Welcome to My Simple Blog! This blog is dedicated to providing
+            valuable articles and resources for developers. Whether you are a
+            beginner or an experienced professional, you'll find useful insights
+            and practical tips to enhance your skills and stay updated with the
+            latest trends in the industry.
+          </p>
+          </br>
+          <p>
+            Our team of expert writers is passionate about technology and
+            committed to delivering high-quality content that covers various
+            topics, including web development, DevOps, cloud computing,
+            programming languages, and more.
+          </p>
+          </br>
+          <p>
+            Stay connected with us to explore new ideas, learn best practices,
+            and advance your career in the ever-evolving world of software
+            development.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <a href="https://github.com/jahazieljbh" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/jahazielbh" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+      <a href="https://twitter.com/jbh_jahaziel" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+      <p class="author">&copy; <span id="current-year"></span> Jahaziel. All rights reserved.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

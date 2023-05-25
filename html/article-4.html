@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/articles/article.css" />
+    <title>Setup and Install PostgreSQL Using Docker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Recursive:wght@300;400;500;600;700;800;900;1000&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="nav">
+        <ul>
+          <li><a href="/">jahazieljbh.dev</a></li>
+        </ul>
+        <ul>
+          <li id="backButton"><a class="fa fa-arrow-left"></a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div id="article-1">
+      <div class="container">
+        <div class="header">
+          <p class="categories">
+            <a class="category">DevOps</a><a class="category">Database</a>
+          </p>
+          <h1>Setup and Install PostgreSQL Using Docker</h1>
+          <p class="date">May 22, 2023</p>
+        </div>
+      </div>
+      <div class="container">
+        <p>
+          Docker is an excellent tool for simplifying the installation and
+          management of applications, including PostgreSQL. By using Docker, you
+          can effectively isolate PostgreSQL from your system and avoid
+          potential conflicts with other installations or configurations.
+        </p>
+        <p>
+          In this post, we will discuss how to install and run PostgreSQL using
+          Docker. We will not be going in the details of Docker installation so
+          make sure to have it installed and running on your system.
+        </p>
+        <h2>Step 1 — Pull the Docker Image</h2>
+        <p>
+          Start by pulling the latest official PostgreSQL image from Docker Hub:
+        </p>
+        <div class="code-toolbar">
+          <pre class="prefixed command language-bash">
+            <code>
+              <ol>
+                <li data-prefix="$">
+                  <span class="token function">sudo</span> <span class="token function">apt</span> update
+                </li>
+              </ol>
+            </code>
+          </pre>
+          <div class="toolbar">
+            <div class="toolbar-item">
+              <button type="button" class="copyButton">
+                Copy
+              </button>
+            </div>
+          </div>
+        </div>
+        <h2>Step 2 — Run the Container</h2>
+        <p>Now that you have the PostgreSQL image, run a new Docker container with the following command:</p>
+        <div class="code-toolbar">
+          <pre class="prefixed command language-bash">
+            <code>
+              <ol>
+                <li data-prefix="$">
+                  <span class="token function">docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres</span>
+                </li>
+              </ol>
+            </code>
+          </pre>
+          <div class="toolbar">
+            <div class="toolbar-item">
+              <button type="button" class="copyButton">Copy</button>
+            </div>
+          </div>
+        </div>
+        <p>Replace <code>some-postgres</code> with a custom name for your PostgreSQL container and <code>mysecretpassword</code> with a secure password. This command will create and start a new PostgreSQL container.</p>
+        <h2>Step 3 — Connect to Container</h2>
+        <p>To connect to the running PostgreSQL container, you can use the following command:</p>
+        <div class="code-toolbar">
+          <pre class="prefixed command language-bash">
+            <code>
+              <ol>
+                <li data-prefix="$">
+                  <span class="line"><span>docker </span><span style="color:#97e1f1">exec</span><span> -it some-postgres psql -U postgres</span></span>
+                </li>
+              </ol>
+            </code>
+          </pre>
+          <div class="toolbar">
+            <div class="toolbar-item">
+              <button type="button" class="copyButton">Copy</button>
+            </div>
+          </div>
+        </div>
+        <p>Replace <code>some-postgres</code> with the name of your PostgreSQL container. You should now be connected to your PostgreSQL instance and able to run SQL commands.</p>
+        <h2>Step 4 — Persisting Data</h2>
+        <p>By default, all data stored within the PostgreSQL Docker container will be removed when the container is deleted. To persist data, add a volume to your container using the <code>-v</code> flag:</p>
+        <div class="code-toolbar">
+          <pre class="prefixed command language-bash">
+            <code>
+              <ol>
+                <li data-prefix="$">
+                  <span class="line"><span>docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -v /path/to/host/folder:/var/lib/postgresql/data -d postgres</span></span>
+                </li>
+              </ol>
+            </code>
+          </pre>
+          <div class="toolbar">
+            <div class="toolbar-item">
+              <button type="button" class="copyButton">Copy</button>
+            </div>
+          </div>
+        </div>
+        <p>Replace <code>/path/to/host/folder</code> with the directory path on your host machine where you would like the data to be stored.</p>
+        <h2>Step 5&nbsp;— Accessing Remotely</h2>
+        <p>To access your PostgreSQL container remotely, you'll need to publish the port on which it's running. The default PostgreSQL port is 5432. Use the <code>-p</code> flag to publish the port:</p>
+        <div class="code-toolbar">
+          <pre class="prefixed command language-bash">
+            <code>
+              <ol>
+                <li data-prefix="$">
+                  <span class="line"><span>docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -p 5432:5432 -d postgres</span></span>
+                </li>
+              </ol>
+            </code>
+          </pre>
+          <div class="toolbar">
+            <div class="toolbar-item">
+              <button type="button" class="copyButton">Copy</button>
+            </div>
+          </div>
+        </div>
+        <p>Now you can connect to your PostgreSQL container using any PostgreSQL client by providing the host IP address or using the <code>localhost</code> address if you are connecting from the same machine and the given port.</p>
+        <h2>Conclusion</h2>
+        <p>Using Docker is a convenient and efficient way to install and manage PostgreSQL. By utilizing containers, you can easily control your PostgreSQL resources and maintain database isolation. Following the above steps, you can quickly install, set up, and access PostgreSQL using Docker.</p>
+      </div>
+    </div>
+
+    <footer>
+      <a href="https://github.com/jahazieljbh" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/jahazielbh" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+      <a href="https://twitter.com/jbh_jahaziel" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+      <p class="author">&copy; <span id="current-year"></span> Jahaziel. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/article.js"></script>
+  </body>
+</html>

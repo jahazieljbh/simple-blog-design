@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/articles/article.css" />
+    <title>Creating a CI/CD pipeline using Github Actions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Recursive:wght@300;400;500;600;700;800;900;1000&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="nav">
+        <ul>
+          <li><a href="/">jahazieljbh.dev</a></li>
+        </ul>
+        <ul>
+          <li id="backButton"><a class="fa fa-arrow-left"></a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div id="article-1">
+      <div class="container">
+        <div class="header">
+          <p class="categories">
+            <a class="category">DevOps</a>
+          </p>
+          <h1>Creating a CI/CD pipeline using Github Actions</h1>
+          <p class="date">May 22, 2023</p>
+        </div>
+      </div>
+      <div class="container">
+        <p>
+          In modern software development, implementing a Continuous Integration and Continuous Deployment (CI/CD) pipeline is essential to achieve efficient and reliable software delivery. GitHub Actions is a powerful automation tool that allows us to build, test, and deploy applications continuously. In this article, we will explore how to set up a CI/CD pipeline using GitHub Actions.
+        </p>
+        <h2>What is CI/CD and Why is it Important?</h2>
+        <blockquote>
+          <p class="text-blockquote">
+            CI/CD (Continuous Integration/Continuous Deployment) is an approach to software development that focuses on automating the processes of building, testing, and deploying software. It aims to minimize errors, increase efficiency, and improve the overall quality of the software being developed. CI/CD involves integrating code changes frequently into a shared repository, running automated tests, and deploying the software to production environments in an automated and reliable manner.
+          </p>
+        </blockquote>
+        <p>
+          The importance of CI/CD lies in its ability to streamline the software development lifecycle and enable teams to deliver software faster and with higher quality. Here are a few key reasons why CI/CD is important:
+        </p>
+        <ul class="list">
+          <li>
+            Faster Time-to-Market: CI/CD allows for quick integration of code changes and automates the build, test, and deployment processes. This reduces the time required to release new features or bug fixes, enabling faster delivery of software to end-users.
+          </li>
+          <li>
+            Early Bug Detection: By automating tests and running them as part of the CI/CD pipeline, issues and bugs can be identified early in the development process. This allows for quick feedback and faster resolution, resulting in more stable and reliable software.
+          </li>
+          <li>
+            Increased Collaboration: CI/CD promotes collaboration among team members as it encourages frequent code integration and provides a shared platform for testing and deployment. This helps in identifying and resolving conflicts or issues early on, leading to better teamwork and efficiency.
+          </li>
+          <li>
+            Continuous Improvement: CI/CD pipelines enable continuous feedback loops, allowing teams to iterate and improve their software continuously. Feedback from tests, user feedback, and performance metrics can be utilized to make informed decisions and implement enhancements, resulting in an evolving and improved product.
+          </li>
+          <li>
+            Reliable Deployments: CI/CD pipelines automate the deployment process, reducing the chances of manual errors and ensuring consistent and reliable deployments. This leads to a more stable and predictable software release process.
+          </li>
+        </ul>
+        <h2>Step 1 — Setting up a Repository in GitHub</h2>
+        <p>
+          The first step is to create a repository in GitHub that contains our project. This can be done directly in the GitHub user interface or through the GitHub API. Once the repository is created, we can start configuring the CI/CD pipeline using GitHub Actions.
+        </p>
+        <h2>Step 2 — Creating a Workflow File</h2>
+        <p>A workflow in GitHub Actions is composed of one or more YAML files that describe the tasks to be performed in the pipeline. To begin, create a new YAML file in the <code>.github/workflows</code> folder of our repository. We can name this file according to our workflow, for example, <code>ci-cd.yaml</code>.</p>
+        <h2>Step 3 — Defining Pipeline Steps</h2>
+        <p>Within the YAML file, we define the steps we want to execute in our CI/CD pipeline. These steps can include tasks such as compiling source code, running unit tests, creating artifacts, and deploying to test or production environments. We can use predefined GitHub actions or create our custom actions based on specific needs.</p>
+        <div >
+          <div class="code-label" title="Output">Example YAML code for a basic CI/CD pipeline</div>
+          <pre class="code-example">
+            <code class="example"><span style="color:#116329">name</span><span></span>: <span style="color:#0a3069">CI/CD Pipeline</span>
+
+<span style="color:#116329">on</span>:
+  <span style="color:#116329">push</span>:
+    <span style="color:#116329">branches</span>:
+      - <span style="color: #0a3069">main</span>
+              
+<span style="color:#116329">jobs</span>:
+  <span style="color:#116329">build</span>:
+    <span style="color:#116329">runs-on</span>: <span style="color:#0a3069">ubuntu-latest</span>
+    <span style="color:#116329">steps</span>:
+    - <span style="color:#116329">name</span>: <span style="color:#0a3069">Checkout</span>
+      - <span style="color:#116329">name</span>: <span style="color:#0a3069">Checkout Repository</span>
+        <span style="color:#116329">uses</span>: <span style="color:#0a3069">actions/checkout@v2</span>
+                    
+      - <span style="color:#116329">name</span>: <span style="color:#0a3069">Set Up Node.js</span>
+        <span style="color:#116329">uses</span>: <span style="color:#0a3069">actions/setup-node@v2</span>
+        <span style="color:#116329">with</span>:
+          <span style="color:#0a3069">node-version: 14</span>
+                    
+      - <span style="color:#116329">name</span>: <span style="color:#0a3069">Install Dependencies</span>
+        <span style="color:#116329">run</span>: <span style="color:#0a3069">npm install</span>
+                    
+      - <span style="color:#116329">name</span>: <span style="color:#0a3069">Build Application</span>
+        <span style="color:#116329">run</span>: <span style="color:#0a3069">npm run build</span>
+                    
+      - <span style="color:#116329">name</span>: <span style="color:#0a3069">Run Tests</span>
+        <span style="color:#116329">run</span>: <span style="color:#0a3069">npm run test</span>
+                    
+      - <span style="color:#116329">name</span>: <span style="color:#0a3069">Deploy to Production</span>
+        <span style="color:#116329">uses</span>: <span style="color:#0a3069">some-action-for-deployment@v1</span>
+        <span style="color:#116329">with</span>:
+          <span style="color:#116329">environment</span>: <span style="color:#0a3069">production</span>
+          <span style="color:#116329">token</span>: <span style="color:#0a3069">${{ secrets.DEPLOYMENT_TOKEN }}</span>
+            </code>
+          </pre>
+        </div>
+        <h2>Step 4 — Configuring Triggers</h2>
+        <p>
+          We can configure triggers in our workflow to automatically execute when specific events occur. For example, we can set up the workflow to run when a push is made to a specific branch or when a new pull request is created.
+        </p>
+        <h2>Step 5 — Viewing Results</h2>
+        <p>
+          Once the workflow is configured, GitHub Actions will automatically execute the defined steps in the pipeline. We can monitor the progress and results of each workflow run in the "Actions" tab of our GitHub repository. This allows us to identify any issues or errors in the pipeline and take necessary actions.
+        </p>
+        <h2>Step 6 — Continuous Improvements</h2>
+        <p>
+          A CI/CD pipeline is an ongoing process. As we develop and improve our project, it is important to regularly review and update the workflow to incorporate new features, performance enhancements, and optimizations. GitHub Actions provides an intuitive and flexible interface that makes implementing these continuous improvements easier.
+        </p>
+        <h2>Conclusion</h2>
+        <p>Implementing a CI/CD pipeline using GitHub Actions can help us achieve faster, more reliable, and efficient software delivery. Automating the processes of building, testing, and deploying ensures higher software quality and a better user experience. GitHub Actions offers a powerful and flexible solution to configure and manage CI/CD pipelines in our projects. By investing time and effort in proper setup, we can maximize the benefits of continuous integration and continuous deployment in our software development practices.</p>
+      </div>
+    </div>
+
+    <footer>
+      <a href="https://github.com/jahazieljbh" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/jahazielbh" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+      <a href="https://twitter.com/jbh_jahaziel" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+      <p class="author">&copy; <span id="current-year"></span> Jahaziel. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/article.js"></script>
+  </body>
+</html>

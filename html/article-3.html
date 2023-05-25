@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/articles/article.css" />
+    <title>Docker from Zero to Hero</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Recursive:wght@300;400;500;600;700;800;900;1000&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="nav">
+        <ul>
+          <li><a href="/">jahazieljbh.dev</a></li>
+        </ul>
+        <ul>
+          <li id="backButton"><a class="fa fa-arrow-left"></a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div id="article-1">
+      <div class="container">
+        <div class="header">
+          <p class="categories">
+            <a class="category">DevOps</a><a class="category">Database</a>
+          </p>
+          <h1>Docker from Zero to Hero</h1>
+          <p class="date">May 22, 2023</p>
+        </div>
+      </div>
+      <div class="container">
+        <p>
+          Docker has revolutionized the world of software development and deployment, providing an efficient and consistent way to package and run applications. If you're starting from scratch, the journey into Docker might seem daunting. But fear not! In this article, we will take you from zero to hero by providing a practical guide to Docker, complete with code examples and essential commands. By the end, you'll have the skills and knowledge to confidently use Docker in your projects.
+        </p>
+        <h2>Step 1 — Installing Docker</h2>
+        <p>Let's begin by installing Docker on your machine. Follow these steps:</p>
+        <ul class="list">
+          <li>
+            <strong>For Windows and macOS users</strong>: Visit the Docker website (<a href="https://www.docker.com" style="color: #FF7575;">docker.com</a>) and download the Docker Desktop installer. Run the installer and follow the instructions to set up Docker on your system.
+          </li>
+          <li>
+            <strong>For Linux users</strong>: Follow the installation instructions for your specific distribution. Docker provides comprehensive documentation for various Linux distributions.
+          </li>
+        </ul>
+        <h2>Step 2 — Docker Fundamentals</h2>
+        <ul class="list">
+          <li>
+            <strong>Docker Images</strong>: Understand the concept of Docker images, which are read-only templates used to create Docker containers. Learn how to pull existing images from Docker Hub and create your own custom images using Dockerfiles.
+          </li>
+          <li>
+            <strong>Docker Containers</strong>: Explore Docker containers, lightweight and isolated runtime instances created from Docker images. Learn how to run, stop, restart, and manage containers using Docker commands.
+          </li>
+          <li>
+            <strong>Docker Volumes</strong>: Discover how to use Docker volumes to persist data between containers and the host machine.
+          </li>
+          <li>
+            <strong>Networking</strong>: Gain insights into Docker networking and how containers can communicate with each other and the outside world.
+          </li>
+        </ul>
+        <h2>Step 3 — Basic Docker Commands</h2>
+        <p>Now that Docker is installed, let's explore some essential Docker commands:</p>
+        <ul class="list">
+          <li>
+            <code>docker run</code> : Start a new container from an image.
+          </li>
+          <li>
+            <code>docker pull</code> : Download an image from a registry (e.g., Docker Hub).
+          </li>
+          <li>
+            <code>docker ps</code> : List running containers.
+          </li>
+          <li>
+            <code>docker images</code> : List available images.
+          </li>
+          <li>
+            <code>docker stop</code> : Stop a running container.
+          </li>
+          <li>
+            <code>docker rm</code> : Remove a container.
+          </li>
+          <li>
+            <code>docker rmi</code> : Remove an image.
+          </li>
+        </ul>
+        <h2>Step 4 — Dockerizing Your Application</h2>
+        <p>To truly harness the power of Docker, you need to containerize your own application. Here's how:</p>
+        <ul class="list">
+          <li>
+            <strong>Create a Dockerfile</strong>: Use a text editor to create a file named <code>Dockerfile</code> in your project directory. This file contains instructions to build your Docker image.
+          </li>
+          <li>
+            <strong>Define a base image</strong>: Specify the base image for your container. For example, if you're working with a Node.js application, you can use <code>FROM node:14</code> as the first line in your Dockerfile.
+          </li>
+          <li>
+            <strong>Copy files</strong>: Use the <code>COPY</code> command to copy your application code into the container.
+          </li>
+          <li>
+            <strong>Install dependencies</strong>: Run any necessary commands (e.g., <code>RUN npm install</code> ) to install dependencies inside the container.
+          </li>
+          <li>
+            <strong>Expose ports</strong>: Use the <code>EXPOSE</code> command to specify which ports your container will listen on.
+          </li>
+          <li>
+            <strong>Start your application</strong>: Finally, use the <code>CMD</code> command to define the command that will run when the container starts.
+          </li>
+        </ul>
+        <h2>Step 5 — Building and Running Containers</h2>
+        <p>Once you have your Dockerfile set up, it's time to build and run your container:</p>
+        <ul class="list">
+          <li>
+            <strong>Build the image</strong>: In your project directory, use <code>docker build -t your-image-name .</code> to build the Docker image.
+          </li>
+          <li>
+            <strong>Run the container</strong>: Use <code>docker run -p host-port:container-port your-image-name</code> to start a container from your image, mapping the host port to the container port.
+          </li>
+        </ul>
+        <h2>Step 6 — Working with Docker Compose for Multi-Container Applications</h2>
+        <p>Docker Compose simplifies the management of multi-container applications. Here's a quick overview:</p>
+        <ul class="list">
+          <li>
+            <strong>Create a Compose file</strong>: Use a text editor to create a file named <code>docker-compose.yml</code> in your project directory.
+          </li>
+          <li>
+            <strong>Define services</strong>: Specify the services (containers) that make up your application, along with their configurations and dependencies.
+          </li>
+          <li>
+            <strong>Start the application</strong>: Run <code>docker-compose up</code> to start all the containers defined in your Compose file.
+          </li>
+        </ul>
+        <h2>Step 7 — Working with Volumes</h2>
+        <p>Volumes allow you to persist data between container runs and share data between the host and the container. Here are some useful volume commands:</p>
+        <ul class="list">
+          <li>
+            <code>docker volume create</code> : Create a new volume.
+          </li>
+          <li>
+            <code>docker volume ls</code> : List available volumes.
+          </li>
+          <li>
+            <code>docker volume inspect</code> : Get detailed information about a volume.
+          </li>
+          <li>
+            <code>docker volume rm</code> : Remove a volume.
+          </li>
+        </ul>
+        <h2>Conclusion</h2>
+        <p>Congratulations on mastering Docker from zero to hero! You've learned the essential commands, containerized your application, and explored Docker Compose and volumes. With Docker, you have gained a powerful tool for creating portable and scalable applications. Remember to keep experimenting, exploring Docker's advanced features, and leveraging its extensive ecosystem of images and tools. Docker opens up a world of possibilities, empowering you to build, deploy, and manage applications with ease. Happy Dockerizing!</p>
+      </div>
+    </div>
+
+    <footer>
+      <a href="https://github.com/jahazieljbh" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/jahazielbh" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+      <a href="https://twitter.com/jbh_jahaziel" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+      <p class="author">&copy; <span id="current-year"></span> Jahaziel. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/article.js"></script>
+  </body>
+</html>
